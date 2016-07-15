@@ -2,9 +2,9 @@ from __future__ import absolute_import  # 2-3 compat
 
 import click
 
-from hark.cli.util import loadLocalContext, loadRemoteContext
 from hark.lib.platform import cpu_cores
 from hark_imagestore.server import ImagestoreServer
+from hark_imagestore.imagecache import S3ImageCache
 
 DEFAULT_WORKERS = (cpu_cores() * 2) + 1
 
@@ -23,14 +23,12 @@ DEFAULT_WORKERS = (cpu_cores() * 2) + 1
 def hark_imagestore(
            port, workers, local, hark_home,
            aws_access_key_id, aws_secret_access_key):
-    if local:
-        harkctx = loadLocalContext(hark_home)
-    else:
-        harkctx = loadRemoteContext(aws_access_key_id, aws_secret_access_key)
+
+    image_cache = S3ImageCache(aws_access_key_id, aws_secret_access_key)
 
     click.secho(
         "Starting gunicorn app on port %d with %d workers" %
         (port, workers), fg='green')
 
-    srv = ImagestoreServer(harkctx, port, workers)
+    srv = ImagestoreServer(image_cache, port, workers)
     srv.run()
