@@ -1,6 +1,6 @@
 # hark-imagestore
 
-[![Build Status](https://travis-ci.org/hark-project/hark-imagestore.svg?branch=develop)](https://travis-ci.org/ceralena/hark)
+[![Build Status](https://travis-ci.org/hark-project/hark-imagestore.svg?branch=develop)](https://travis-ci.org/hark-project/hark-imagestore)
 
 Image service for the [hark project](https://hark-project.net).
 
