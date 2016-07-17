@@ -29,8 +29,10 @@ GPLv3. See the LICENSE file for details.
 
 # Python Support
 
-Same as the main hark tool - see the [README#Python Support](https://github.com/hark-project/hark#python-support).
+Same as the main hark tool - see the [README#Python
+Support](https://github.com/hark-project/hark#python-support).
 
 # Running Tests
 
-Again, same as the main hark tool - see its [README#Running Tests](https://github.com/hark-project/hark#running-tests).
+Again, same as the main hark tool - see its [README#Running
+Tests](https://github.com/hark-project/hark#running-tests).

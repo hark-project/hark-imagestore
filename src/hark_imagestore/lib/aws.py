@@ -19,9 +19,16 @@ class S3Bucket(object):
         resp = self.s3.list_objects_v2(**params)
         return [o['Key'] for o in resp['Contents']]
 
+    def url(self, key):
+        "Generate a URL to GET a key"
+        return '%s/%s/%s' % (
+            self.s3.meta.endpoint_url, self.bucket, key
+        )
+
     def signed_url(self, key):
-        "Get a signed URL to GET an object"
+        "Generate a signed URL to GET an object"
         params = {'Bucket': self.bucket, 'Key': key}
         url = self.s3.generate_presigned_url(
                 'get_object', Params=params)
+
         return url
