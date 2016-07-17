@@ -25,7 +25,7 @@ def test_reqs():
 
 setuptools.setup(
     name='hark-imagestore',
-    version='v1.0.0.dev0',
+    version='v1.0.0.dev1',
     author='Cera Davies',
     author_email='ceralena.davies@gmail.com',
     description='image store service for the hark tool',
