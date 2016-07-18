@@ -7,7 +7,6 @@ from hark.models.image import Image
 DEFAULT_S3_REGION = 'ap-southeast-2'
 DEFAULT_S3_BUCKET = 'harkvm'
 
-BASE_IMAGE_PREFIX = 'machine_images/base'
 BUILT_IMAGE_PREFIX = 'machine_images/built'
 
 
@@ -35,10 +34,3 @@ class S3ImageCache(object):
         return self.bucket.signed_url(
             os.path.join(BUILT_IMAGE_PREFIX, image.s3_path())
         )
-
-    def full_base_image_path(self, base_image, signed=False):
-        key = os.path.join(BASE_IMAGE_PREFIX, base_image.s3_path())
-        if signed:
-            return self.bucket.signed_url(key)
-        else:
-            return self.bucket.url(key)

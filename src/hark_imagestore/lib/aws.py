@@ -19,6 +19,19 @@ class S3Bucket(object):
         resp = self.s3.list_objects_v2(**params)
         return [o['Key'] for o in resp['Contents']]
 
+    def put_object(self, key, body):
+        """
+        Upload an object to the bucket.
+
+        body should be a file-like object.
+        """
+        params = {
+            'Bucket': self.bucket,
+            'Key': key,
+            'Body': body,
+        }
+        self.s3.put_object(**params)
+
     def url(self, key):
         "Generate a URL to GET a key"
         return '%s/%s/%s' % (
