@@ -1,4 +1,5 @@
 import boto3.session
+import boto3.s3.transfer
 
 
 class S3Bucket(object):
@@ -11,6 +12,7 @@ class S3Bucket(object):
             aws_secret_access_key=aws_secret_access_key,
             region_name=s3_region)
 
+        self.session = session
         self.s3 = session.client('s3')
         self.bucket = s3_bucket
 
@@ -19,18 +21,13 @@ class S3Bucket(object):
         resp = self.s3.list_objects_v2(**params)
         return [o['Key'] for o in resp['Contents']]
 
-    def put_object(self, key, body):
+    def put_object(self, key, filename, callback=None):
         """
-        Upload an object to the bucket.
-
-        body should be a file-like object.
+        Upload a file to the bucket.
         """
-        params = {
-            'Bucket': self.bucket,
-            'Key': key,
-            'Body': body,
-        }
-        self.s3.put_object(**params)
+        transfer = boto3.s3.transfer.S3Transfer(self.s3)
+        transfer.upload_file(
+            filename, self.bucket, key, callback=callback)
 
     def url(self, key):
         "Generate a URL to GET a key"
