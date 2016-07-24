@@ -20,7 +20,7 @@ class S3ImageCache(object):
         objects = self.bucket.list()
         objects = [
             o for o in objects
-            if o.startswith('machine_images/built/')
+            if o.startswith(BUILT_IMAGE_PREFIX + '/')
             and len(o.split('/')) == 5
             and '.' in o
         ]
@@ -30,7 +30,8 @@ class S3ImageCache(object):
             im.append(image)
         return im
 
+    def prefixed_image_path(self, image):
+        return os.path.join(BUILT_IMAGE_PREFIX, image.s3_path())
+
     def full_image_path(self, image):
-        return self.bucket.signed_url(
-            os.path.join(BUILT_IMAGE_PREFIX, image.s3_path())
-        )
+        return self.bucket.signed_url(self.prefixed_image_path(image))
