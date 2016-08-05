@@ -23,6 +23,28 @@ After checking out the repo:
 
 	cd src && pip install .
 
+## Building
+
+This project can be built as a Debian package to simplify deployment. The
+debian configuration was built with the `make-deb` command from pypi.
+
+You need some dependencies:
+
+	sudo apt-get install python3-dev debhelper dh-virtualenv
+
+Then just run:
+
+	$ cd src && dpkg-buildpackage -uc -us -b
+
+This will produce a `.deb` build artifact - a Debian package - at the root of
+the repository. On Debian systems, you can install this with:
+
+	# dpkg -i $filename
+
+You can then run the system with:
+
+	$ /usr/share/python/hark-imagestore/bin/hark_imagestore
+
 # License
 
 GPLv3. See the LICENSE file for details.
@@ -36,3 +58,4 @@ Support](https://github.com/hark-project/hark#python-support).
 
 Again, same as the main hark tool - see its [README#Running
 Tests](https://github.com/hark-project/hark#running-tests).
+
