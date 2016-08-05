@@ -1,4 +1,4 @@
 #!/usr/bin/make -f
 
 %:
-	dh $@ --with python-virtualenv --python `which python3` --setuptools --no-test
+	dh $@ --with python-virtualenv --python `which python3` --setuptools --no-test --with systemd

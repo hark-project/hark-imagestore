@@ -1,0 +1,12 @@
+[Unit]
+Description=hark imagestore service
+After=network.target
+
+[Service]
+EnvironmentFile=/etc/default/hark-imagestore
+ExecStart=/usr/share/python/hark-imagestore/bin/hark_imagestore --port $IMAGESTORE_PORT
+Restart=on-failure
+User=hark-imagestore
+
+[Install]
+WantedBy=multi-user.target
