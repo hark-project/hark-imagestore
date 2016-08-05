@@ -1,0 +1,16 @@
+hark-imagestore (1.0.0.dev3) UNRELEASED; urgency=medium
+
+  [ Cera Davies ]
+  * [FEATURE] first commit: imagestore service
+  * [DOC] Add travis build badge
+  * [DOC] fix travis build badge url
+  * [BUG] add missing code from main hark project
+  * [FEATURE] Support getting an unsigned s3 url for a base image
+  * [RELEASE] v1.0.0.dev1
+  * [CLEANUP] Remove some unneeded builder code; support PutObject in s3
+  * [RELEASE] v1.0.0.dev2
+  * [FEATURE] Add debian package build support
+
+  [ Hark ]
+
+ -- Cera Davies <ceralena.davies@gmail.com>  Fri, 05 Aug 2016 00:44:53 +0000

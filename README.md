@@ -45,6 +45,9 @@ You can then run the system with:
 
 	$ /usr/share/python/hark-imagestore/bin/hark_imagestore
 
+The changelog can be updated with `git-dch` from the `git-buildpackage`
+package.
+
 # License
 
 GPLv3. See the LICENSE file for details.
