@@ -1,4 +1,16 @@
-hark-imagestore (1.0.0.dev3) UNRELEASED; urgency=medium
+hark-imagestore (1.0.0.dev4) UNRELEASED; urgency=medium
+
+  [ Cera Davies ]
+  * [FEATURE] Support callback for uploads
+  * [RELEASE] v1.0.0.dev3
+  * [CLEANUP] Distinguish prefixed_image_path from full_image_path
+  * [FEATURE] debian: add defaults file and systemd unit file
+
+  [ Hark ]
+
+ -- Cera Davies <ceralena.davies@gmail.com>  Fri, 05 Aug 2016 15:17:18 +0000
+
+hark-imagestore (1.0.0.dev3) RELEASED; urgency=medium
 
   [ Cera Davies ]
   * [FEATURE] first commit: imagestore service

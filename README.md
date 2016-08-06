@@ -45,8 +45,20 @@ You can then run the system with:
 
 	$ /usr/share/python/hark-imagestore/bin/hark_imagestore
 
-The changelog can be updated with `git-dch` from the `git-buildpackage`
-package.
+### Updating the Debian Changelog
+
+Before building the debian package as above, update the Debian changelog. The `git-dch` tool from `git-buildpackage` can do this:
+
+	git-dch --debian-branch develop --auto
+
+Per the man page:
+
+> If the distribution of the topmost section in debian/changelog is UNRELEASED
+> the changelog entries  will  be  inserted  into this section. Otherwise a new
+> section will be created.
+
+i.e. change `UNRELEASED` to `RELEASED` in the topmost distribution unless you
+want the changelog added to it.
 
 # License
 
